@@ -1,7 +1,7 @@
 use clap::Parser;
 use std::fs;
 
-/// Convert CSV table to HTML table
+/// Convert CSV to HTML table
 #[derive(Parser, Debug)]
 #[command(author, version)]
 struct Args {

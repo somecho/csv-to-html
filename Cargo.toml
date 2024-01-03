@@ -6,6 +6,8 @@ license = "MIT"
 keywords = ["csv","html"]
 categories = ["command-line-utilities"]
 authors = ["Somē Cho <itssomicho@gmail.com>"]
+description="Convert CSV to HTML table"
+repository="https://github.com/somecho/tbl"
 
 [lib]
 name = "tbl"

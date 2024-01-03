@@ -23,3 +23,33 @@ pub fn convert(csv: &String, has_header: &bool) -> String {
     }
     table.to_html_string()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn compare(input: &str, output: &str, has_header: &bool) {
+        let input = std::fs::read_to_string(["data", input].join("/")).unwrap();
+        let expected = std::fs::read_to_string(["data", output].join("/")).unwrap();
+        assert!(convert(&input, has_header) == expected);
+    }
+
+    #[test]
+    fn random_100_100_header() {
+        compare("random-100x100.csv", "random-100x100.html", &true);
+    }
+
+    #[test]
+    fn random_100_100_no_header() {
+        compare(
+            "random-100x100.csv",
+            "random-100x100-no-header.html",
+            &false,
+        );
+    }
+
+    #[test]
+    fn space_delimiter() {
+        compare("space.csv", "space.html", &true);
+    }
+}

@@ -19,7 +19,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
     let csv_file = fs::read_to_string(&args.filename).expect("Cannot read file");
-    let html: String = tbl::csv_to_html(&csv_file, &!args.no_header);
+    let html: String = csv_to_html::convert(&csv_file, &!args.no_header);
     match args.output {
         Some(path) => fs::write(path, html).expect("Unable to write file"),
         None => println!("{}", html),

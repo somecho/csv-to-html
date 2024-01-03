@@ -1,20 +1,20 @@
 [package]
-name = "tbl"
-version = "0.3.4"
+name = "csv-to-html"
+version = "0.4.6"
 edition = "2021"
 license = "MIT"
 keywords = ["csv","html"]
 categories = ["command-line-utilities"]
 authors = ["Somē Cho <itssomicho@gmail.com>"]
 description="Convert CSV to HTML table"
-repository="https://github.com/somecho/tbl"
+repository="https://github.com/somecho/csv-to-html"
 
 [lib]
-name = "tbl"
+name = "csv_to_html"
 path = "src/lib.rs"
 
 [[bin]]
-name = "tbl"
+name = "csv-to-html"
 path = "src/main.rs"
 
 [dependencies]

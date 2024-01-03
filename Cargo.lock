@@ -124,6 +124,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "csv-to-html"
+version = "0.4.6"
+dependencies = [
+ "build_html",
+ "clap",
+ "csv",
+]
+
+[[package]]
 name = "heck"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -200,15 +209,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
-]
-
-[[package]]
-name = "tbl"
-version = "0.3.4"
-dependencies = [
- "build_html",
- "clap",
- "csv",
 ]
 
 [[package]]

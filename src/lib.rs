@@ -1,6 +1,6 @@
 use build_html::{Html, Table};
 
-pub fn csv_to_html(csv: &String, has_header: &bool) -> String {
+pub fn convert(csv: &String, has_header: &bool) -> String {
     let mut csv_reader = csv::Reader::from_reader(csv.as_bytes());
     let mut table = Table::new();
     match csv_reader.headers() {

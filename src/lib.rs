@@ -1,7 +1,9 @@
 use build_html::{Html, Table};
 
-pub fn convert(csv: &String, has_header: &bool) -> String {
-    let mut csv_reader = csv::Reader::from_reader(csv.as_bytes());
+pub fn convert(csv: &String, delimiter: &u8, has_header: &bool) -> String {
+    let mut csv_reader = csv::ReaderBuilder::new()
+        .delimiter(*delimiter)
+        .from_reader(csv.as_bytes());
     let mut table = Table::new();
     match csv_reader.headers() {
         Ok(record) => {
@@ -28,15 +30,15 @@ pub fn convert(csv: &String, has_header: &bool) -> String {
 mod tests {
     use super::*;
 
-    fn compare(input: &str, output: &str, has_header: &bool) {
+    fn compare(input: &str, output: &str, delimiter: &u8, has_header: &bool) {
         let input = std::fs::read_to_string(["data", input].join("/")).unwrap();
         let expected = std::fs::read_to_string(["data", output].join("/")).unwrap();
-        assert!(convert(&input, has_header) == expected);
+        assert!(convert(&input, delimiter, has_header) == expected);
     }
 
     #[test]
     fn random_100_100_header() {
-        compare("random-100x100.csv", "random-100x100.html", &true);
+        compare("random-100x100.csv", "random-100x100.html", &b',', &true);
     }
 
     #[test]
@@ -44,12 +46,13 @@ mod tests {
         compare(
             "random-100x100.csv",
             "random-100x100-no-header.html",
+            &b',',
             &false,
         );
     }
 
     #[test]
     fn space_delimiter() {
-        compare("space.csv", "space.html", &true);
+        compare("space.csv", "space.html", &b' ', &true);
     }
 }

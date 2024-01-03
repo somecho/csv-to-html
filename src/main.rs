@@ -18,18 +18,10 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
-    let reader = csv::Reader::from_path(args.filename);
-    match reader {
-        Ok(mut r) => {
-            let html: String = tbl::csv_to_html(&mut r, &!args.no_header);
-            match args.output {
-                Some(path) => fs::write(path, html).expect("Unable to write file"),
-                None => println!("{}", html),
-            }
-        }
-        Err(err) => {
-            eprintln!("{}", err);
-            std::process::exit(1);
-        }
+    let csv_file = fs::read_to_string(&args.filename).expect("Cannot read file");
+    let html: String = tbl::csv_to_html(&csv_file, &!args.no_header);
+    match args.output {
+        Some(path) => fs::write(path, html).expect("Unable to write file"),
+        None => println!("{}", html),
     }
 }

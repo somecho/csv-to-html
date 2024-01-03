@@ -204,7 +204,7 @@ dependencies = [
 
 [[package]]
 name = "tbl"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "build_html",
  "clap",

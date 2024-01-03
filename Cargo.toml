@@ -1,10 +1,19 @@
 [package]
 name = "tbl"
-version = "0.2.2"
+version = "0.2.3"
 edition = "2021"
+license = "MIT"
+keywords = ["csv","html"]
+categories = ["command-line-utilities"]
 authors = ["Somē Cho <itssomicho@gmail.com>"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "tbl"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tbl"
+path = "src/main.rs"
 
 [dependencies]
 build_html = "2.4.0"

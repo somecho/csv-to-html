@@ -17,6 +17,12 @@ program data files, etc_. Installation is as easy as:
 cargo uninstall csv-to-html
 ```
 
+### Web Service
+
+`csv-to-html` has a [web
+service](https://github.com/somecho/csv-to-html-service) that wraps this tool.
+If you just need a quick and easy conversion, try it out.
+
 ## Usage
 
 ```

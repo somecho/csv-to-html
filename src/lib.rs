@@ -16,13 +16,10 @@ pub fn convert(csv: &String, delimiter: &u8, has_header: &bool) -> String {
         }
         Err(_) => (),
     }
-    let records = csv_reader.records();
-    for r in records {
-        match r {
-            Ok(record) => table.add_body_row(record.iter().collect::<Vec<&str>>()),
-            Err(_) => (),
-        }
-    }
+    csv_reader.records().into_iter().for_each(|r| match r {
+        Ok(record) => table.add_body_row(record.iter().collect::<Vec<&str>>()),
+        Err(_) => (),
+    });
     table.to_html_string()
 }
 

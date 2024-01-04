@@ -125,7 +125,7 @@ dependencies = [
 
 [[package]]
 name = "csv-to-html"
-version = "0.5.8"
+version = "0.5.10"
 dependencies = [
  "build_html",
  "clap",

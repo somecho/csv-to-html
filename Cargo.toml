@@ -8,6 +8,7 @@ categories = ["command-line-utilities"]
 authors = ["Somē Cho <itssomicho@gmail.com>"]
 description="Convert CSV to HTML table"
 repository="https://github.com/somecho/csv-to-html"
+readme="README.md"
 
 [lib]
 name = "csv_to_html"
